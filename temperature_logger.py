@@ -54,7 +54,7 @@ def kafka_publish(data):
         tempC=float(data.split(" ")[1])
         timestamp=time.time()
         temp_string = "%f,%d,%d,%d,%f"%(timestamp,temp_sensor[sensor_id]['zone'], temp_sensor[sensor_id]['lane'], temp_sensor[sensor_id]['classroom'], tempC)
-        kafka_producer.send(KAFKA_TOPIC,"temp_string")
+        kafka_producer.send(KAFKA_TOPIC,temp_string)
     except Exception as e:
         logger.exception(str(e.message)+" "+str(data))
 
